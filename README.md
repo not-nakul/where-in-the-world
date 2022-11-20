@@ -1,3 +1,3 @@
-_snip_
+https://countries-fetch.netlify.app/
 
 tba
