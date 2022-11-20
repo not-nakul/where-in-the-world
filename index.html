@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Where in the world?</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <p>Where in the world?</p>
+      <button class="theme-switch" id="themeSwitch">
+        <span class="material-symbols-outlined" id="themeSwitchIcon"
+          >dark_mode</span
+        ><span id="themeSwitchText">Dark Mode</span>
+      </button>
+    </div>
+
+    <div class="main-container" id="mainContainer">
+      <div class="search-pane">
+        <div class="input-container">
+          <label for="searchInput"
+            ><span class="material-symbols-outlined search-icon"
+              >search</span
+            ></label
+          >
+          <input
+            type="text"
+            class="search-input"
+            id="searchInput"
+            placeholder="Search for a country..."
+          />
+        </div>
+
+        <div class="filter-container">
+          <div class="home-button" id="homeButton">
+            <p>Home</p>
+            <span class="material-symbols-outlined">home</span>
+          </div>
+          <div class="dropdown" data-dropdown>
+            <div class="filter-button" data-dropdown-button>
+              <p data-dropdown-button>Filter by Region</p>
+              <span class="material-symbols-outlined" data-dropdown-button
+                >expand_more</span
+              >
+            </div>
+            <div class="dropdown-menu">
+              <div class="dropdown-links" id="dropwdownLinks">
+                <a
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="asia"
+                  >Asia</a
+                >
+                <a
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="africa"
+                  >Africa</a
+                >
+                <a
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="europe"
+                  >Europe</a
+                >
+                <a
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="oceania"
+                  >Oceania</a
+                >
+                <a
+                  href="http://"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  id="americas"
+                  >America</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="error-message" id="errorMessage">
+        <span class="material-symbols-outlined">error</span>
+        <p>
+          It seems that you have made an invalid search.<br />
+          Please enter a valid search query, or click on the Home button to
+          return!
+        </p>
+      </div>
+
+      <!-- <div class="placeholder" id="placeholder">
+        <p>
+          Type in a country by its name and hit the enter key to make a
+          search<br />
+          Or, type in an
+          <span class="material-symbols-outlined"> emergency </span> in the
+          search bar to display all of the countries
+        </p>
+      </div> -->
+
+      <div class="tip-container" id="tipContainer">
+        <p>(Tip: Click on the respective flags to view a detailed panel)</p>
+      </div>
+
+      <div class="spinner" id="spinnerElement">
+        <span class="material-symbols-outlined">hourglass_empty</span>
+      </div>
+
+      <div class="content" id="contentContainer"></div>
+    </div>
+
+    <div class="details-pane" id="detailsPane">
+      <div class="back-button" id="backButton">
+        <span class="material-symbols-outlined">arrow_back</span>
+        <p>Back</p>
+      </div>
+      <div class="details-content" id="detailsContent"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+  </body>
+</html>

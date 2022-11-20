@@ -1,0 +1,460 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap");
+
+/* using css variables to define 2 color pallettes */
+:root {
+  --font-color: hsl(200, 15%, 8%);
+  --bg-color: hsl(0, 0%, 98%);
+  --elements-color: hsl(0, 0%, 100%);
+}
+
+[data-theme="dark"] {
+  --font-color: hsl(0, 0%, 100%);
+  --bg-color: hsl(207, 26%, 17%);
+  --elements-color: hsl(209, 23%, 22%);
+}
+
+html {
+  background-color: var(--bg-color);
+  overflow-x: hidden !important;
+  transition: 0.4s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+/* styling related to the header/navbar */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  background-color: var(--elements-color);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  color: var(--font-color);
+  cursor: default;
+  transition: 0.4s;
+}
+
+.theme-switch {
+  background: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--font-color);
+  transition: 0.4s;
+}
+
+/* styling related to the search bar */
+.search-pane {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  color: hsl(0, 0%, 52%);
+}
+
+.input-container span {
+  position: absolute;
+}
+
+.search-icon {
+  padding: 0.9rem;
+  cursor: pointer;
+}
+
+.input-container:focus-within {
+  color: var(--font-color);
+}
+
+.search-input {
+  width: 30rem;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  padding-left: 3.5rem;
+  border-radius: 0.5rem;
+  border-width: 0;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  color: var(--font-color);
+  background-color: var(--elements-color);
+  transition: 0.4s;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+/* styling related to the filter button */
+.filter-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.filter-button {
+  display: flex;
+  background-color: var(--elements-color);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: hsl(0, 0%, 52%);
+  font-weight: 600;
+  transition: 0.4s;
+}
+
+.filter-button:hover {
+  color: var(--font-color);
+}
+
+.home-button {
+  display: none;
+  align-items: center;
+  background-color: var(--elements-color);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: hsl(0, 0%, 52%);
+  font-weight: 600;
+  transition: 0.4s;
+}
+
+.home-button:hover {
+  color: var(--font-color);
+}
+
+/* styling for the dropdown menu */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-menu {
+  position: absolute;
+  left: 0;
+  top: calc(100% + 1rem);
+  z-index: 1;
+  width: 100%;
+  background-color: var(--elements-color);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transition: 0.4s;
+}
+
+.dropdown-links {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.dropdown-links a {
+  text-decoration: none;
+  color: hsl(0, 0%, 52%);
+  font-weight: 600;
+}
+
+.dropdown-links a:hover {
+  color: var(--font-color);
+}
+
+.dropdown.active .dropdown-menu {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+/* styling for the error message */
+.error-message {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  color: hsl(0, 67%, 52%);
+  font-size: 1rem;
+  font-weight: 600;
+  padding-top: 1rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  cursor: default;
+  transition: 0.3s;
+}
+
+/* [ARCHIVED] styling for the placeholder above the actual content */
+/* .placeholder {
+  color: hsl(0, 0%, 52%);
+  font-size: 1.2rem;
+  font-weight: 600;
+  text-align: center;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 3rem;
+  cursor: default;
+  transition: 0.3s;
+}
+
+.placeholder span {
+  padding: 0.4rem;
+}
+
+.placeholder:hover {
+  transform: scale(110%);
+}
+
+.placeholder:hover span {
+  color: var(--font-color);
+} */
+
+/* styling related to the content and country cards */
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 3rem;
+}
+
+.country-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--elements-color);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  cursor: default;
+  width: 20rem;
+  height: 25rem;
+  transition: 0.4s;
+}
+
+.country-card img {
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
+  height: 50%;
+  cursor: pointer;
+}
+
+.card-text {
+  padding: 2rem;
+  color: var(--font-color);
+  transition: 0.4s;
+}
+
+.card-text h3 {
+  padding-bottom: 1rem;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.card-text p {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.country-card:hover {
+  transform: scale(108%);
+}
+
+.tip-container {
+  color: hsl(0, 0%, 52%);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  cursor: default;
+}
+
+.spinner {
+  color: hsl(0, 0%, 52%);
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  cursor: default;
+}
+
+.spinner span {
+  animation: spin 1s infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* styling for the detailed view pane */
+.details-pane {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding-top: 3rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  background-color: var(--bg-color);
+  transform: translateX(100%);
+  transition: 0.3s;
+}
+
+.back-button {
+  display: flex;
+  align-items: center;
+  width: 8rem;
+  background-color: var(--elements-color);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  gap: 0.5rem;
+  cursor: pointer;
+  color: hsl(0, 0%, 52%);
+  font-weight: 600;
+}
+
+.back-button:hover {
+  color: var(--font-color);
+}
+
+.details-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding-top: 8rem;
+}
+
+.details-content img {
+  width: 50%;
+  height: auto;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+}
+
+.details-text {
+  width: 50%;
+  height: auto;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  color: var(--font-color);
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  background-color: var(--elements-color);
+  cursor: default;
+}
+
+.details-text h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  padding-bottom: 1rem;
+}
+
+.details-text p {
+  line-height: 1.8rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+/* styling for the google icons */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+/* mobile view */
+@media (width <= 800px) {
+  .header {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  #themeSwitchText {
+    display: none;
+  }
+
+  .search-pane {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .search-input {
+    width: 100%;
+  }
+
+  .content {
+    justify-content: center;
+    gap: 1rem;
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .country-card:hover {
+    transform: none;
+  }
+
+  .tip-container {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .details-pane {
+    padding-top: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .details-content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    gap: 1rem;
+  }
+
+  .details-content img {
+    width: 100%;
+    height: auto;
+  }
+
+  .details-text {
+    width: 100%;
+    height: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
