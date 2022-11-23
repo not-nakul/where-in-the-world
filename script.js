@@ -55,7 +55,17 @@ let appendResults = (result) => {
   countryCard.classList.add("country-card");
   contentContainer.appendChild(countryCard);
 
-  let { name, flags, population, region, capital } = result;
+  let {
+    name,
+    flags,
+    population,
+    region,
+    subregion,
+    capital,
+    tld,
+    currencies,
+    languages,
+  } = result;
 
   let flagImage = document.createElement("img");
   flagImage.src = flags.png;
@@ -82,65 +92,62 @@ let appendResults = (result) => {
   textContainer.appendChild(countryCapital);
 
   // logic to display the detailed view
-  flagImage.addEventListener("click", (event) => {
+  countryCard.addEventListener("click", (event) => {
     detailsPane.style.transform = "translateX(0%)";
     mainContainer.style.display = "none";
 
-    if (event.target.src === result.flags.png) {
-      let detailedImage = document.createElement("img");
-      detailedImage.src = result.flags.png;
-      detailsContent.appendChild(detailedImage);
+    let detailedImage = document.createElement("img");
+    detailedImage.src = flags.svg;
+    detailsContent.appendChild(detailedImage);
 
-      let detailedText = document.createElement("div");
-      detailedText.classList.add("details-text");
-      detailsContent.appendChild(detailedText);
+    let detailedText = document.createElement("div");
+    detailedText.classList.add("details-text");
+    detailsContent.appendChild(detailedText);
 
-      let detailedName = document.createElement("h3");
-      detailedName.textContent = result.name.common;
-      detailedText.appendChild(detailedName);
+    let detailedName = document.createElement("h3");
+    detailedName.textContent = name.common;
+    detailedText.appendChild(detailedName);
 
-      let nativeName = result.name.nativeName;
-      let detailedNativeName = document.createElement("p");
-      detailedNativeName.textContent =
-        "Native Name: " + Object.values(nativeName)[0].official;
-      detailedText.appendChild(detailedNativeName);
+    let nativeName = name.nativeName;
+    let detailedNativeName = document.createElement("p");
+    detailedNativeName.textContent =
+      "Native Name: " + Object.values(nativeName)[0].official;
+    detailedText.appendChild(detailedNativeName);
 
-      let detailedPopulation = document.createElement("p");
-      detailedPopulation.textContent =
-        "Population: " + result.population.toLocaleString();
-      detailedText.appendChild(detailedPopulation);
+    let detailedPopulation = document.createElement("p");
+    detailedPopulation.textContent =
+      "Population: " + population.toLocaleString();
+    detailedText.appendChild(detailedPopulation);
 
-      let detailedRegion = document.createElement("p");
-      detailedRegion.textContent = "Region: " + result.region;
-      detailedText.appendChild(detailedRegion);
+    let detailedRegion = document.createElement("p");
+    detailedRegion.textContent = "Region: " + region;
+    detailedText.appendChild(detailedRegion);
 
-      let detailedSubRegion = document.createElement("p");
-      detailedSubRegion.textContent = "Sub Region: " + result.subregion;
-      detailedText.appendChild(detailedSubRegion);
+    let detailedSubRegion = document.createElement("p");
+    detailedSubRegion.textContent = "Sub Region: " + subregion;
+    detailedText.appendChild(detailedSubRegion);
 
-      let detailedCapital = document.createElement("p");
-      detailedCapital.textContent = "Capital: " + result.capital;
-      detailedText.appendChild(detailedCapital);
+    let detailedCapital = document.createElement("p");
+    detailedCapital.textContent = "Capital: " + capital;
+    detailedText.appendChild(detailedCapital);
 
-      let detailedDomain = document.createElement("p");
-      detailedDomain.textContent = "Top Level Domain: " + result.tld;
-      detailedText.appendChild(detailedDomain);
+    let detailedDomain = document.createElement("p");
+    detailedDomain.textContent = "Top Level Domain: " + tld;
+    detailedText.appendChild(detailedDomain);
 
-      let currencies = result.currencies;
-      let detailedCurrencies = document.createElement("p");
-      detailedCurrencies.textContent =
-        "Currency: " +
-        Object.values(currencies)[0].name +
-        " (" +
-        Object.values(currencies)[0].symbol +
-        ")";
-      detailedText.appendChild(detailedCurrencies);
+    let detailedCurrencies = document.createElement("p");
+    detailedCurrencies.textContent =
+      "Currency: " +
+      Object.values(currencies)[0].name +
+      " (" +
+      Object.values(currencies)[0].symbol +
+      ")";
+    detailedText.appendChild(detailedCurrencies);
 
-      let detailedLanguages = document.createElement("p");
-      detailedLanguages.textContent =
-        "Languages: " + Object.values(result.languages);
-      detailedText.appendChild(detailedLanguages);
-    }
+    let detailedLanguages = document.createElement("p");
+    detailedLanguages.textContent =
+      "Languages: " + Object.values(languages).join(", ");
+    detailedText.appendChild(detailedLanguages);
   });
 
   backButton.addEventListener("click", (event) => {

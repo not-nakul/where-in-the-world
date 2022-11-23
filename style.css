@@ -114,6 +114,7 @@ html {
   padding: 1rem;
   gap: 0.5rem;
   cursor: pointer;
+  user-select: none;
   color: hsl(0, 0%, 52%);
   font-weight: 600;
   transition: 0.4s;
@@ -132,6 +133,7 @@ html {
   padding: 1rem;
   gap: 0.5rem;
   cursor: pointer;
+  user-select: none;
   color: hsl(0, 0%, 52%);
   font-weight: 600;
   transition: 0.4s;
@@ -173,6 +175,8 @@ html {
   text-decoration: none;
   color: hsl(0, 0%, 52%);
   font-weight: 600;
+  cursor: pointer;
+  user-select: none;
 }
 
 .dropdown-links a:hover {
@@ -197,6 +201,7 @@ html {
   padding-left: 3rem;
   padding-right: 3rem;
   cursor: default;
+  user-select: none;
   transition: 0.3s;
 }
 
@@ -240,20 +245,18 @@ html {
 .country-card {
   display: flex;
   flex-direction: column;
+  width: 19rem;
   background-color: var(--elements-color);
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
-  cursor: default;
-  width: 20rem;
-  height: 25rem;
+  cursor: pointer;
+  user-select: none;
   transition: 0.4s;
 }
 
 .country-card img {
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
-  height: 50%;
-  cursor: pointer;
 }
 
 .card-text {
@@ -285,6 +288,7 @@ html {
   padding-left: 3rem;
   padding-right: 3rem;
   cursor: default;
+  user-select: none;
 }
 
 .spinner {
@@ -332,6 +336,7 @@ html {
   padding: 1rem;
   gap: 0.5rem;
   cursor: pointer;
+  user-select: none;
   color: hsl(0, 0%, 52%);
   font-weight: 600;
 }
@@ -343,20 +348,19 @@ html {
 .details-content {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 3rem;
-  padding-top: 8rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
 }
 
 .details-content img {
-  width: 50%;
-  height: auto;
+  width: 40%;
   box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
   border-radius: 0.5rem;
 }
 
 .details-text {
-  width: 50%;
-  height: auto;
   padding-top: 2rem;
   padding-bottom: 2rem;
   padding-left: 2rem;
@@ -386,7 +390,7 @@ html {
 }
 
 /* mobile view */
-@media (width <= 800px) {
+@media (width <= 900px) {
   .header {
     padding-top: 1rem;
     padding-left: 1rem;
@@ -446,15 +450,17 @@ html {
 
   .details-content img {
     width: 100%;
-    height: auto;
   }
 
   .details-text {
     width: 100%;
-    height: auto;
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .home-button {
+    order: 1;
   }
 }
